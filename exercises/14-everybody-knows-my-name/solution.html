@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Zdefiniowaliśmy dla Ciebie obiekt, który zawiera imię osoby, oraz funkcje, która zwraca jej imię.
+    </p>
+
+    <p class="spoiler" tabindex="-1">
+      - do rozwiązania zadania doskonale nadaje się <code>call</code>, <code>apply</code> lub <code>bind</code><br />
+      - <code>person.getName</code> to funkcja, która zwraca funkcję, która to dopiero zwraca powitanie
+    </p>
+
+
+    <div class="solution">
+      <button onClick="console.log(test())">Powitaj Bartka</button>
+      <button onClick="console.log(test2({name: 'Marcin'}))">Powitaj Marcina</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+
+      var person = {
+        name: 'Bartosz',
+        getName: function() {                    
+          return function() {            
+            return 'Witaj ' + this.name
+          }
+        }
+      }
+
+      function test() { 
+        var powitajMnie = person.getName().bind(person);       
+        return powitajMnie();
+      }
+
+      function test2(input) {
+        return person.getName().call(input);
+      }
+    </script>
+  </body>
+</html>

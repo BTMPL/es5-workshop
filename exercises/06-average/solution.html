@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Napisz ciało funkcji, która wywołana z jednym argumentem (tablicą obiektów typu Number) zwróci średnią wartość.
+    </p>
+    <p class="spoiler" tabindex="-1">
+      - <code>.toFixed(2)</code> zaokrągli wartość do 2 miejsc
+    </p>
+    <div class="solution">
+        <button onClick="console.log(test([1,2,3,4]))">Uruchom dla [1,2,3,4]</button>
+        <button onClick="console.log(test([-1,0,3]))">Uruchom dla [-1,0,3]</button>
+      </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test(input) {
+        var total = 0;
+        for(var i = 0; i < input.length ; i++) {
+          total += input[i];
+        }
+        return (total / input.length).toFixed(2);
+      }
+    </script>
+  </body>
+</html>

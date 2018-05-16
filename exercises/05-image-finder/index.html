@@ -1,0 +1,37 @@
+
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>    
+    <script src="../../boot.js"></script>
+
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie aplikacji, która pobierze listę zdjęć dla zadanej frazy i wyświetli je poniżej.
+    </p>
+
+
+
+    <div class="search">
+      <input type="text" />
+      <input type="button" value="SZUKAJ" />
+    </div>
+    <div class="list"></div>
+
+    <script>
+
+      document.querySelector('input[type="button"]').addEventListener('click', doSearch);
+
+      function doSearch() {
+        // pobierz szukany tekst
+        
+        document.querySelector('.list').innerHTML = 'Szukam ...';
+
+      };
+
+    </script>
+  </body>
+</html>

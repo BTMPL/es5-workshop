@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie aplikacji, która wywołana z listą produktów oraz ilością osób poda kwotę, jaką powinna dołożyć do póli każda z osób, uczestniczących w posiłku.
+    </p>
+    <p class="explain">
+      - Twoja funkcja jako parametry wejściowy powinna przyjąć 2 informacje: łączny koszt posiłku i ilość osób<br />
+      - Pamiętaj, że nikt nie nosi przy sobie <code>0.001</code> PLN, więc wszystkie kwoty muszą być zaokrąglone do <code>0.01</code>; jeżeli ktoś będzie musiał zapłacić więcej, niech będzie to ostatnia osoba (trzeba było się nie spóźniać ;))<br />
+      - Twoja funkcja powinna zwrócić tablicę zawierającą kwoty dla wszystkich X osób
+    </p>
+    <p class="spoiler" tabindex="-1">
+      - w celu zaokręglenia wartości do X miejsc po przecinku użyj zapisu <code>var zaokraglone = parseInt(1234.5678 * 100) / 100;</code>
+    </p>
+    <div class="solution">      
+      <button onClick="console.log(test(26, 2))">26 zł i 2 osoby</button>
+      <button onClick="console.log(test(32, 3))">32 zł i 3 osoby</button>
+      <button onClick="console.log(test(34, 3))">34 zł i 3 osoby</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+
+      function zaokragl(input) {
+        return (parseInt(input * 100) / 100);
+      }
+
+      function test(koszt, osoby) {
+
+
+        var ret = [];
+        var avg = zaokragl(koszt / osoby);
+        var doplata = koszt - (osoby * avg);
+        
+
+        for(var i = 0; i < osoby; i++) {
+          var platnoscOsoby = avg;
+          if (i+1 === osoby) { // jezeli to ostatnia osoba
+            platnoscOsoby += doplata; // dodaj do jej czesci doplate
+          }
+          ret.push(platnoscOsoby.toFixed(2)); // zaokragl do 2 miejsc
+        }
+
+        return ret;
+      }
+
+    </script>
+  </body>
+</html>

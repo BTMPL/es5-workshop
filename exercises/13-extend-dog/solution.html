@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest poprawne rozszerzenie klasy <code>Dog</code>, tak by wywołanie funkcji <code>opis</code> zwróciło opis Twojego psa.
+    </p>
+
+
+    <div class="solution">
+      <button onClick="console.log(test())">Opisz psa</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+
+      function Dog(name, legs) {
+        this.name = name;
+        this.legs = legs || 4;
+      }
+
+      Dog.prototype.opis = function() {
+        return 'Mój pies wabi się ' + this.name + ' i ma ' + this.legs + ' łapy!';
+      }
+
+      function Shiba(name) {
+        Dog.call(this, name);
+      }
+      Shiba.prototype = Object.create(Dog.prototype);
+      var pies = new Shiba('Szarik');
+
+      function test(input) {        
+        return pies.opis();
+      }
+    </script>
+  </body>
+</html>

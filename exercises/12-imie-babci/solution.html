@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Napisz ciało funkcji, która przyjmie obiekt określonego kształtu i zwróci imię babci z obu stron rodziny.
+    </p>
+
+    <p class="spoiler" tabindex="-1">
+      - funkcja może zwrócić tablicę, albo połączony string
+    </p>
+    <pre>
+      {
+        name: 'Bartek',
+        parents: {
+          mother: {
+            name: 'Henryka',
+            parents: {
+              mother: 'Teresa',
+              father: 'Tomasz'
+            }
+          },
+          father: {
+            name: 'Piotr',
+            parents: {
+              mother: 'Ewa',
+              father: 'Maciej'
+            }
+          }
+        }
+      }
+    </pre>
+
+    <script>
+      var obj = {
+        name: 'Bartek',
+        parents: {
+          mother: {
+            name: 'Henryka',
+            parents: {
+              mother: 'Teresa',
+              father: 'Tomasz'
+            }
+          },
+          father: {
+            name: 'Piotr',
+            parents: {
+              mother: 'Ewa',
+              father: 'Maciej'
+            }
+          }
+        }
+      }; 
+    </script>
+
+    <div class="solution">
+      <button onClick="console.log(test(obj))">Podaj</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test(input) {
+        return [
+          input.parents.mother.parents.mother,
+          input.parents.father.parents.mother
+        ]
+      }
+    </script>
+  </body>
+</html>

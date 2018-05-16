@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+
+
+    <div class="solution">
+      <button onClick="console.log(test('to jest przykładowy string'))">Uruchom dla wartości 'to jest przykładowy string'</button>
+
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function podajZnakNaPozycji(input, pozycja) {
+        return input[pozycja]
+      }
+
+      function test() {
+        // aby pobrać 3-cią literę ze stringu "test" użyj
+        podajZnakNaPozycji("test", 2);
+
+        // aby pobrać pierwszą użyj
+        podajZnakNaPozycji("test", 0);
+      }
+
+    </script>
+  </body>
+</html>

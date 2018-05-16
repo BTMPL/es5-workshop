@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie ciała funkcji tak, by wywołane z imieniem zwróciło powitanie. Jeżeli nie podamy imienia, powitaj "Gościa"
+    </p>
+
+    <div class="solution">
+      <button onClick="console.log(test('Bartek'))">Powitaj Bartka</button>
+      <button onClick="console.log(test())">Powitaj nieznaną osobę</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test(name) {
+        name = name || 'Gościu';
+        return 'Witaj, ' + name;
+      }
+    </script>
+  </body>
+</html>

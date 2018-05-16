@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+
+    <div class="solution">
+      <button onClick="console.log(test(1, 2, 3, Infinity))">Uruchom dla 1, 2, 3 i Infinity</button>
+      <button onClick="console.log(test([], {}))">Uruchom dla [] i {}</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test() {
+        return;
+      }
+    </script>
+  </body>
+</html>

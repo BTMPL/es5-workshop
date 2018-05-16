@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+
+    <div class="solution">
+      <button onClick="console.log(test())">Powitaj Bartka</button>
+      <button onClick="console.log(test2({name: 'Marcin'}))">Powitaj Marcina</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+
+      var person = {
+        name: 'Bartosz',
+        getName: function() {                    
+          return function() {            
+            return 'Witaj ' + this.name
+          }
+        }
+      }
+
+      function test() { 
+        var powitajMnie = '';
+        return powitajMnie();
+      }
+
+      function test2(input) {
+        return '';
+      }
+    </script>
+  </body>
+</html>

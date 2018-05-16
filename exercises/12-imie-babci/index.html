@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+
+    <script>
+      var obj = {
+        name: 'Bartek',
+        parents: {
+          mother: {
+            name: 'Henryka',
+            parents: {
+              mother: 'Teresa',
+              father: 'Tomasz'
+            }
+          },
+          father: {
+            name: 'Piotr',
+            parents: {
+              mother: 'Ewa',
+              father: 'Maciej'
+            }
+          }
+        }
+      }; 
+    </script>
+
+    <div class="solution">
+      <button onClick="console.log(test(obj))">Podaj</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test() {
+        return '';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie funkcji, która jako wartość przyjmie liczbę (rok urodzenia) i przeprowadzi następującą weryfikację:<br />
+    </p>
+    <p class="explain">
+      - jeżeli data urodzenia jest błędna (załóżmy, że osoby urodzone przed 1900 i po 2018 roku to nie nasi odbiorcy ;)) zwróci komunikat o błędnej dacie,<br />
+      - jeżeli osoba nie jest pełnoletnia (ma mniej niż 18 lat) zwróci komunikat informujący, że usługa dostępna jest tylko dla osób pełnoletnich,<br />
+      - w innym wypadku zwróci komunikat "ok"
+    </p>
+    <div class="solution">
+      <button onClick="console.log(test(1800))">Uruchom dla wartości 1800</button>
+      <button onClick="console.log(test(1984))">Uruchom dla wartości 1984</button>
+      <button onClick="console.log(test(2010))">Uruchom dla wartości 2010</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test(year) {
+        var thisYear = 2018;
+        if (year < 1900 || year > thisYear) return 'Prosimy o podanie *prawdziwej* daty.';
+        else if (thisYear - year < 18) return 'Przepraszamy, ale nasza usługa dostępna jest tylko dla osób pełnoletnich.';
+        return 'OK';
+      }
+    </script>
+  </body>
+</html>

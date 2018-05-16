@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+
+
+    <div class="solution">
+      <button onClick="console.log(test())">Opisz psa</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+
+      function Dog(name, legs) {
+        this.name = name;
+        this.legs = legs || 4;
+      }
+
+      Dog.prototype.opis = function() {
+        return 'Mój pies wabi się ' + this.name + ' i ma ' + this.legs + ' łapy!';
+      }
+
+      function Shiba(name) {
+        
+      }
+      
+      var pies = new Shiba('Szarik');
+
+
+      function test(input) {        
+        return pies.opis();
+      }
+    </script>
+  </body>
+</html>

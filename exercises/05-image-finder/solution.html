@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>    
+    <script src="../../boot.js"></script>
+
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie aplikacji, która pobierze listę zdjęć dla zadanej frazy i wyświetli je poniżej.
+    </p>
+    
+    <p class="explain">
+      - do Twojej dyspozycji jest funkcja <code>doSearch(string, callback)</code>, gdzie callback to funkcja przyjmująca dwa parematry; tablicę wyników oraz string z komunikatem błedu
+      - pamiętaj, że możesz użyć <code>console.log</code> lub debuggera by sprawdzić, jaki "kształt" ma tablica odpowiedzi
+    </p>
+
+    <div class="search">
+      <input type="text" />
+      <input type="button" value="SZUKAJ" />
+    </div>
+    <div class="list">
+
+    </div>
+
+    <script>
+
+      document.querySelector('input[type="button"]').addEventListener('click', doSearch);
+
+      function doSearch() {
+        var str = document.querySelector('input[type="text"]').value;
+        document.querySelector('.list').innerHTML = 'Szukam ...';
+        searchImage(str, function(success, error) {          
+          if (error) {
+            document.querySelector('.list').innerHTML = error;
+          } else {
+            document.querySelector('.list').innerHTML = null;
+
+            for(var i = 0; i < success.length ; i++) {
+              var img = document.createElement('img');
+              img.src = success[i].url;
+              document.querySelector('.list').appendChild(img);
+            }
+          }
+        });
+      }
+
+    </script>
+  </body>
+</html>

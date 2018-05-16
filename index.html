@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="./boot.js"></script>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="ui">
+      <div class="list">
+        <ul>
+          <li><a href="#01-age-verification">sprawdzanie wieku</a></li>
+          <li><a href="#02-reverse-string">odwracanie stringu</a></li>
+          <li><a href="#10-greet-me">powitanie</a></li>
+          <li><a href="#11-counter">licznik</a></li>          
+          <li><a href="#06-average">średnia </a></li>
+          <li><a href="#07-unique">unikaty </a></li>
+          <li><a href="#08-is-same">takie same</a></li>
+          <li><a href="#03-meal-cost-calculator">bonus: obliczanie kosztu posilku</a></li>
+          <li><a href="#12-imie-babci">imię babci</a></li>
+          <li><a href="#09-fix-this">fix this</a></li>
+          <li><a href="#13-extend-dog">mój pies</a></li>
+          <li><a href="#14-everybody-knows-my-name">każdy zna moje imię</a></li>
+
+          <!--
+          <li><a href="#04-calculator">kalkulator </a></li>
+          <li><a href="#05-image-finder">wyszukiwanie obrazow</a></li>          
+          -->
+        </ul>
+      </div>
+      <div class="exercise" id="user"><iframe src="about:blank"></iframe></div>
+      <div class="exercise" id="solution"><iframe src="about:blank"></iframe></div>
+    </div>
+
+
+    <script>
+      function loadEnv(ex) {
+        document.querySelector('#user iframe').src = 'exercises/' + ex + '/index.html';
+        document.querySelector('#solution iframe').src = 'exercises/' + ex + '/solution.html';
+      }
+
+      var items = document.querySelectorAll('.list ul li a');
+      for(var i = 0 ; i < items.length ; i++) {
+        items[i].addEventListener('click', function(e) {
+          loadEnv(this.href.split('#')[1]);
+        })
+      }
+
+      if(document.location.hash) {
+        loadEnv(document.location.hash.substr(1));
+      }
+    </script>
+  </body>
+</html>

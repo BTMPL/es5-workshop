@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+
+
+    <div class="solution">      
+      <div class="calculator">
+
+        <input type="text" id="lcd" readonly />
+        <button id="bDiv">/</button>
+
+        <button id="b7">7</button>
+        <button id="b8">8</button>
+        <button id="b9">9</button>
+        <button id="bMult">X</button>
+
+        <button id="b4">4</button>
+        <button id="b5">5</button>
+        <button id="b6">6</button>
+        <button id="bMinus">-</button>
+
+        <button id="b1">1</button>
+        <button id="b2">2</button>
+        <button id="b3">3</button>
+        <button id="bPlus">+</button>
+        
+        <button id="bC">C</button>
+        <button id="b0">0</button>
+        <button disabled></button>
+        <button id="bEq">=</button>
+        
+      </div>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+
+      document.getElementById('b0').addEventListener('click', function() { keyPress(0); });
+      
+      // w tej zmiennej przechowuj to, co jest aktualnie "w pamięci" kalkulatora
+      var stack = '';
+
+      // funkcja aktualizująca "ekranik LCD"
+      function updateLCD() {        
+        document.getElementById('lcd').value = stack;
+      }
+
+      // 
+      function calculate() {
+        // oblicz wartość wyrażenia "w pamięci"
+        // ...
+        updateLCD();        
+      }
+      
+      function operatorPress(v) {
+        // nie pozwól na wpisanie operatora jako pierwszy znak CHYBA, że to minus
+        // ...
+        
+        // nie pozwól na wpisanie więcej niż 2 operatorów z rzędu
+        // ...
+                
+        updateLCD();
+      }
+
+      function keyPress(v) {
+        // dodaj wciśnięty klawisz do pamięci
+        stack += v;
+        updateLCD();       
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie funkcji, która przyjmie jako dane wejściowe String i zwróci go "od tyłu"
+    </p>
+    <p class="explain">
+      - na potrzeby przykładu przyjmijmy, że tekst nie będzie zawierał emotikonów etc ;)
+    </p>
+    <p class="explain">
+        Dla Twojej wygody przygotowaliśmy funkcje, która przyjmuje 2 parametry: ciąg i pozycje, i zwraca literę na danej pozycji.
+      </p>    
+    <div class="solution">
+      <button onClick="console.log(test('to jest przykładowy string'))">Uruchom dla wartości 'to jest przykładowy string'</button>
+
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function podajZnakNaPozycji(input, pozycja) {
+        return input[pozycja]
+      }
+      function test(input) {
+        var ret = '';
+        for(var i = input.length - 1 ; i >= 0 ; i--) {
+          ret += podajZnakNaPozycji(input, i);
+        }
+        return ret;
+      }
+
+    </script>
+  </body>
+</html>

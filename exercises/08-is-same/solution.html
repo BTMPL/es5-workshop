@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+    <link href="../../style.css" rel="stylesheet" />
+    <script src="../../boot.js"></script>
+    <script>
+      hijackConsole();
+    </script>
+  </head>
+  <body>
+    <p class="explain">
+      Twoim zadaniem jest napisanie funkcji, która zostanie wywołana z dowolną ilością parametrów, a Twoim zadaniem jest zwrócenie true, jeżeli wszystkie one są tego samego typu.
+    </p>
+    <p class="explain">      
+      - na potrzeby przykładu nie przekażemy <code>null</code>
+    </p>
+    <p class="spoiler" tabindex="-1">
+      - pamiętaj, że funkcję wywołamy z dowolną ilością parametrów, nie z tablicą - przypomnij sobie <code>arguments</code><br />      
+      - Array i Object są różnymi typami,<br />      
+      - do sprawdzenia typu możesz użyć operatora <code>typeof</code>
+    </p>
+    <div class="solution">      
+      <button onClick="console.log(test(1, 2, 3, Infinity))">Uruchom dla 1, 2, 3 i Infinity</button>
+      <button onClick="console.log(test([], {}))">Uruchom dla [] i {}</button>
+    </div>
+
+    <ul id="console"></ul>
+
+    <script>
+      function test() {
+        var type = typeof arguments[0];
+        for(var i = 1; i < arguments.length ; i++) {
+          if(typeof arguments[i] !== type) return false;
+          if(typeof arguments[i] === 'object') {
+            if(arguments[0].toString() !== arguments[i].toString()) {
+              return false;
+            }
+          }
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
