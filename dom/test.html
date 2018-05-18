@@ -76,66 +76,15 @@
             };
                   
             describe('Router mechanism', function() {
-              it('calls the loadPost function when navigating to a post', function() {
-                var stub = sinon.stub(window, "loadPost");
-                router('/test/1');
-                expect(window.loadPost.calledWith('1')).to.equal(true);
-                stub.restore();
-              });
-              it('calls the loadIndex function when navigating to index', function() {
-                var stub = sinon.stub(window, "loadIndex");
-                router('');
-                expect(stub.called).to.equal(true);
-                stub.restore();
-              })              
+                     
             });
 
-            describe('get and post helpers', function() {
-              it('get helper passes back backend response', function() {
-                var callback = sinon.fake();
-                var data = JSON.stringify(fixtures.posts);
-                get('//example.com', callback);
-                requests[0].respond(200,{ "Content-Type": "application/json" }, data);
-
-                expect(callback.calledWith(data)).to.equal(true);
-              });
-
-              it('post helper sets the expected header and converst object body to JSON', function() {
-                var callback = sinon.fake();
-                var data = fixtures.posts;
-                var json = JSON.stringify(data);
-                post('//example.com', data, callback);
-                requests[0].respond(200, { "Content-Type": "application/json" }, json);
-
-                expect(requests[0].requestHeaders['Content-Type']).to.contain('application/json');
-                expect(requests[0].requestBody).to.equal(json);
-              });
+            xdescribe('get and post helpers', function() {
+              
             });
 
             describe('index view', function() {
-              it('loading posts sends the request, and tries to reneder the result', function() {
-                var stub = sinon.stub(window, "renderPosts");
-                loadIndex();
-                var data = JSON.stringify(fixtures.posts);
-                requests[0].respond(200,{ "Content-Type": "application/json" }, data);
-
-                expect(stub.called).to.equal(true);
-                stub.restore();
-              })
-
-              it('renderPosts renders the received items to a designated container', function() {
-                var target = document.createElement('div');
-                renderPosts(fixtures.posts, target);
-
-                expect(target.querySelectorAll('li').length).to.equal(5);
-              });
-
-              it('clicking one ofthe rendered elements updates the URL', function() {
-                var target = document.createElement('div');
-                renderPosts(fixtures.posts, target);
-                target.querySelector('li').click();
-                expect(window.location.hash).to.equal('#post/' + fixtures.posts[0].id);
-              })
+              
             });            
             
         </script>
